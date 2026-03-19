@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <title>Vue App</title>
+    <link href="css/grid.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+     <!-- We can teach the browser where to locate the vue import by using Import Maps -->
+     <script type="importmap">
+        {
+          "imports": {
+            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+          }
+        }
+      </script>
+      <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Vue Application</h1>
+    <p>This is the header it is not part of the app</p>
+  </header>
+      <!-- Where we place our app -->
+    <section id="app">
+      <p>{{message}}</p>
+    </section>
+     
+</body>
+</html>
