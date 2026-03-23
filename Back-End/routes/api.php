@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\BookController;
+use App\Http\Controllers\ElectricCarController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,23 +25,19 @@ Route::get('/', function () {
 });
 
 // ::class prints the FQCN, which is App\Http\Controllers\BookController
-Route::get('/books', [BookController::class, 'index']);
 
-Route::get('/books/{book}', [BookController::class, 'show']);
+//Show all electric cars
+//127.0.0.1:8000/api/electric-cars
+Route::get('/electric-cars', [ElectricCarController::class, 'index']);
 
-//INDEX: List
-//SHOW: Single resource
-//STORE: Create a new resource
-//UPDATE: Updating a resource
-//DESTROY: deleting/destroying a resource
+//Get Single car
+Route::get('/electric-cars/{electric_car}', [ElectricCarController::class, 'show']);
 
-Route::post('/books', [BookController::class, 'store']);
+//Store/Make a new car to the db
+Route::post('/electric-cars', [ElectricCarController::class, 'store']);
 
-//PUT: the entire object must be provided, meaning any missing fields are updated to null
-//PATCH: change whatever fields are provided, and leave the rest alone!
+//Update data in the database for electric cars
+Route::patch('/electric-cars/{electric_car}', [ElectricCarController::class, 'update']);
 
-//PATCH is most used
-
-Route::patch('/books/{book}', [BookController::class, 'update']);
-
-Route::delete('/books/{book}', [BookController::class, 'destroy']);
+//Delete the car
+Route::delete('/electric-cars/{electric_car}', [ElectricCarController::class, 'destroy']);
