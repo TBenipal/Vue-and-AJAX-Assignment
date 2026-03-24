@@ -36,7 +36,7 @@ class PetrolCarController extends Controller
         $capacity = $request->input('fuel_capacity');
         $price = $request->input('price');
 
-        $petrol_car = PetrolCar::make([
+        $petrol_car = PetrolCar::create([
             'make' => $make,
             'model' => $model,
             'fuel' => $fuel,

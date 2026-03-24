@@ -7,15 +7,9 @@
     <title>Vue App</title>
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
      <!-- We can teach the browser where to locate the vue import by using Import Maps -->
-     <script type="importmap">
-        {
-          "imports": {
-            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
-          }
-        }
-      </script>
-      <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
 </head>
 <body>
   <header>
@@ -23,9 +17,20 @@
     <p>This is the header it is not part of the app</p>
   </header>
       <!-- Where we place our app -->
-    <section id="app">
-      <p>{{message}}</p>
+  <section id="app">
+    <section>
+      <h2>Vehicles</h2>
+
+      <!-- <button @click="fetchCar()">Load Cars</button> -->
+
+      <ul>
+        <li v-for="car in electricCars">
+          <button type="button">
+            {{ car.make }} {{ car.fuel }}
+          </button>
+        </li>
+      </ul>
     </section>
-     
+  </section>
 </body>
 </html>

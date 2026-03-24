@@ -1,9 +1,39 @@
-import {createApp} from 'vue';
-
-const myApp = createApp({
+const app = Vue.createApp({
     data() {
         return {
-            message: "Hello Vue World"
+            electricCars: [],
+            petrolCars: [],
+            selectedCar: '',
+            electricUrl: "http://127.0.0.1:8000/api/electric-cars",
+            petrolUrl: "http://127.0.0.1:8000/api/petrol-cars"
+        };
+    },
+    methods: {
+        fetchCar() {
+            fetch(this.electricUrl)
+            .then(response => response.json())
+            .then(data => { 
+                this.electricCars = data; 
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        },
+
+        ElectricDetails(id) {
+            fetch(`${this.electricUrl}/${id}`)
+            .then(response => response.json())
+            .then(data => { 
+                this.selectedCar = data; 
+            })
+            .catch(error => {
+                console.error(error);
+            });
         }
+    },
+
+    mounted() {
+        this.fetchCar();
     }
+
 }).mount("#app");
