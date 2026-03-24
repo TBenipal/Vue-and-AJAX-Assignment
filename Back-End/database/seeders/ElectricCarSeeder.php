@@ -14,6 +14,6 @@ class ElectricCarSeeder extends Seeder
      */
     public function run()
     {
-        ElectricCar::factory()->count(50)->create();
+        // ElectricCar::factory()->count(50)->create();
     }
 }

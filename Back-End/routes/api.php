@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ElectricCarController;
+use App\Http\Controllers\PetrolCarController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,14 +31,30 @@ Route::get('/', function () {
 //127.0.0.1:8000/api/electric-cars
 Route::get('/electric-cars', [ElectricCarController::class, 'index']);
 
-//Get Single car
+//Show all petrol cars
+//127.0.0.1:8000/api/petrol-cars
+Route::get('/petrol-cars', [PetrolCarController::class, 'index']);
+
+//Get Single electric car
 Route::get('/electric-cars/{electric_car}', [ElectricCarController::class, 'show']);
 
-//Store/Make a new car to the db
+//Get Single petrol car
+Route::get('/petrol-cars/{petrol_car}', [PetrolCarController::class, 'show']);
+
+//Store/Make a new electric car to the db
 Route::post('/electric-cars', [ElectricCarController::class, 'store']);
+
+//Store/Make a new petrol car to the db
+Route::post('/petrol-cars', [PetrolCarController::class, 'store']);
 
 //Update data in the database for electric cars
 Route::patch('/electric-cars/{electric_car}', [ElectricCarController::class, 'update']);
 
-//Delete the car
+//Update data in the database for petrol cars
+Route::patch('/petrol-cars/{petrol_car}', [PetrolCarController::class, 'update']);
+
+//Delete the electric car
 Route::delete('/electric-cars/{electric_car}', [ElectricCarController::class, 'destroy']);
+
+//Delete the electric car
+Route::delete('/petrol-cars/{petrol_car}', [PetrolCarController::class, 'destroy']);
