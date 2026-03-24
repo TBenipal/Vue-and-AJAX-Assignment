@@ -40,7 +40,7 @@ class ElectricCarController extends Controller
         $price = $request->input('price');
 
         //Make the object in process
-        $electric_car = ElectricCar::make([
+        $electric_car = ElectricCar::create([
             'make' => $make,
             'model' => $model,
             'fuel' => $fuel,
