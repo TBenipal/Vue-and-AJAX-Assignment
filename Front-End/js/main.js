@@ -1,3 +1,4 @@
+console.log("APP STARTED");
 const app = Vue.createApp({
     data() {
         return {
@@ -18,10 +19,30 @@ const app = Vue.createApp({
             .catch(error => {
                 console.error(error);
             });
+
+            fetch(this.petrolUrl)
+            .then(response => response.json())
+            .then(data => { 
+                this.petrolCars = data; 
+            })
+            .catch(error => {
+                console.error(error);
+            });
         },
 
         ElectricDetails(id) {
             fetch(`${this.electricUrl}/${id}`)
+            .then(response => response.json())
+            .then(data => { 
+                this.selectedCar = data; 
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        },
+
+        PetrolDetails(id) {
+            fetch(`${this.petrolUrl}/${id}`)
             .then(response => response.json())
             .then(data => { 
                 this.selectedCar = data; 
