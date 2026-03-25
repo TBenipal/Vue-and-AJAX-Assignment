@@ -28,6 +28,12 @@
             {{ car.make }} {{ car.fuel }}
           </button>
         </li>
+
+        <li v-for="car in petrolCars">
+          <button type="button">
+            {{ car.make }} {{ car.fuel }}
+          </button>
+        </li>
       </ul>
     </section>
   </section>
